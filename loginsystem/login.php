@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   }
 
   if ($login) {
-    header('Location: input-menu.php');
+    header('Location: menu-table.php');
   }
 }
 
