@@ -25,6 +25,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       $statement->bindValue(":description", $description);
       $statement->bindValue(":price", $price);
       $statement->execute();
+
+      header('Location: menu-table.php');
     }
   }
 }

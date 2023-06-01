@@ -29,7 +29,7 @@ $products = $statement->fetchAll(PDO::FETCH_ASSOC);
 
 <body>
   <a href="create-dish.php" class="m-5 btn btn-info">Add a Dish</a>
-  <button class="m-5 float-end btn btn-warning">Logout</button>
+  <a href="logout.php" class="m-5 float-end btn btn-warning">Logout</a>
   <h1 class="text-center">Current Menu Items</h1>
   <table class="m-5 table">
     <thead>
@@ -47,12 +47,14 @@ $products = $statement->fetchAll(PDO::FETCH_ASSOC);
           <th scope="row"><?php echo $i + 1; ?></th>
           <td><?php echo $product['title']; ?></td>
           <td><?php echo '$ ' . $product['price']; ?></td>
-          <td><button type="button" class="btn btn-outline-success">Edit</button></td>
-          <form action="delete-dish.php" method="post">
-            <td><input type="hidden" name="id" value="<?php echo $product['id']; ?>">
+          <td>
+            <a href="./edit-dish.php?id=<?php echo $product['id']; ?>" type="button" class="btn btn-outline-success">Edit</a>
+
+            <form action="delete-dish.php" style="display: inline-block;" method="post">
+              <input type="hidden" name="id" value="<?php echo $product['id']; ?>">
               <button type="submit" class="btn btn-outline-danger">Delete</a>
-            </td>
-          </form>
+            </form>
+          </td>
         </tr>
       </tbody>
     <?php endforeach; ?>
